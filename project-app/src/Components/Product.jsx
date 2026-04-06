@@ -11,38 +11,33 @@ import pd6 from '../Assets/FoodCourt/pd6.png'
 import pd7 from '../Assets/FoodCourt/pd7.jpeg'
 import { useCart } from './CartContext';
 
-
-
-
-
-
- function Product({}) {
-  const images = [pd1,pd2,pd3,pd4,pd5,pd6,pd7];
+function Product() {
+  const images = [pd1, pd2, pd3, pd4, pd5, pd6, pd7];
 
   const { addToCart } = useCart();
-    
 
-    return (
-      <Layoutone>
-        {productContent.map((content, index) => (
-          <ProductCard
-            key={index}
-            image={images[index]}
-            textHead={content.textHead}
-            textBody={content.textBody}
-            textFoot={content.textFoot}
-             onAddToCart={() =>
+  return (
+    <Layoutone>
+      {productContent.map((content, index) => (
+        <ProductCard
+          key={index}
+          image={images[index]}
+          textHead={content.textHead}
+          textBody={content.textBody}
+          textFoot={content.textFoot}
+          onAddToCart={() =>
             addToCart({
               id: index + 1,
               image: images[index],
               textHead: content.textHead,
               textFoot: content.textFoot,
-              price: 2000, // Example price
-            })}
-          />
-        ))}
-      </Layoutone>
-    );
-  
+              price: 2000,
+            })
+          }
+        />
+      ))}
+    </Layoutone>
+  );
 }
+
 export default Product;
