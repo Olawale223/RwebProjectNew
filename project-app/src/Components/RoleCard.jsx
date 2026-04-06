@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import Layouttwo from '../Layout/Layouttwo';
 import SlotComponent from './Minor Components/SlotComponent';
 import roleContent from './Roles';
@@ -31,84 +31,28 @@ function RoleCard() {
         speed: 1500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        initialSlide: 0,
-        autoplay: true, // Enable autoplay
-        autoplaySpeed: 700, // Set autoplay speed in milliseconds
+        autoplay: true,
+        autoplaySpeed: 700,
+        swipe: true,
+        draggable: true,
         responsive: [
             {
                 breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                }
+                settings: { slidesToShow: 2 }
             },
             {
                 breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    initialSlide: 0
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
+                settings: { slidesToShow: 1 }
             }
         ]
     };
 
     const sliderRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [dragStartX, setDragStartX] = useState(0);
-    const [dragStartScrollLeft, setDragStartScrollLeft] = useState(0);
-
-    const handleMouseDown = (e) => {
-        setIsDragging(true);
-        setDragStartX(e.clientX);
-        setDragStartScrollLeft(sliderRef.current.scrollLeft);
-    };
-
-    const handleMouseMove = (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const offsetX = e.clientX - dragStartX;
-        sliderRef.current.scrollLeft = dragStartScrollLeft - offsetX;
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseLeave = () => {
-        setIsDragging(false);
-    };
-
-    useEffect(() => {
-        const slider = sliderRef.current;
-        if (!slider) return;
-
-        slider.addEventListener('mousedown', handleMouseDown);
-        slider.addEventListener('mousemove', handleMouseMove);
-        slider.addEventListener('mouseup', handleMouseUp);
-        slider.addEventListener('mouseleave', handleMouseLeave);
-
-        return () => {
-            slider.removeEventListener('mousedown', handleMouseDown);
-            slider.removeEventListener('mousemove', handleMouseMove);
-            slider.removeEventListener('mouseup', handleMouseUp);
-            slider.removeEventListener('mouseleave', handleMouseLeave);
-        };
-    }, [handleMouseDown, handleMouseMove, handleMouseUp, handleMouseLeave]);
 
     return (
         <Layouttwo>
             <div className="draggable-container">
-                <Slider {...settings} innerRef={sliderRef}>
+                <Slider {...settings} ref={sliderRef}>
                     {roleContent.map((content, index) => (
                         <SlotComponent
                             key={index}
