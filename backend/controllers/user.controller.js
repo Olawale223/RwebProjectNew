@@ -1,0 +1,14 @@
+import express from "express";
+import User from "../models/user.model.js";
+
+const router = express.Router();
+
+// get logged-in user info
+export const user =  async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password"); 
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+};

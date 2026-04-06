@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.label{
+    margin-bottom: 2rem;
+    padding: 2rem;
+    text-align: center;
+    justify-content: center;
+
+}
+#search{
+    height: 3rem;
+    width: 30rem;
+    border-radius: 50px;
+    border: 1px solid crimson;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+  #search {
+    width: 20rem;
+    font-size: 1rem;
+  }
+  .label {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  #search {
+    width: 90vw;
+    font-size: 0.9rem;
+    height: 2.2rem;
+  }
+  .label {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 480px) {
+  #search {
+    width: 98vw;
+    font-size: 0.8rem;
+    height: 2rem;
+  }
+  .label {
+    font-size: 0.8rem;
+  }
+}

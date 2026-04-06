@@ -1,0 +1,292 @@
+/* Navbar Container */
+.nav {
+  background-color: #0a0c12;
+  padding: 16px 24px;
+  color: white;
+  position: relative;
+  z-index: 10;
+}
+
+/* Flex wrapper */
+.navcont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo h1 {
+  margin-top:20px ;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.list-item a, h1{
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* .list-item  h1{
+  font-size: 1000px;
+} */
+.list-item a:hover {
+  color: #00bcd4; 
+}
+.list-item {
+  list-style: none;
+  color: #fff;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.list-item li {
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.list-item li:hover {
+  color: rgb(255, 255, 255);
+}
+
+/* Hamburger and User Icon Section */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.icons img {
+  height: 24px;
+  cursor: pointer;
+  filter: brightness(0) invert(1); /* Changes image color to white */
+}
+
+/* Hamburger Button Styles */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.hamburger-bar {
+  width: 68px;
+  height: 3px;
+  background: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 250;
+}
+
+.hamburger-btn.open .hamburger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-btn.open .hamburger-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.open .hamburger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Cart Icon Styles */
+.cart-icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-counter {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #ff4d4f;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 7px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(255,77,79,0.15);
+  border: 2px solid #181a20;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .navcont {
+    flex-direction: row; /* keep row layout */
+    justify-content: space-between; /* spread logo left, icons+hamburger right */
+    width: 100%;
+  }
+
+  .menu {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100vw;
+    background: #0a0c12;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    z-index: 150;
+    display: none; /* hide until active */
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .list-item {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .list-item li {
+    width: 100%;
+    padding: 8px 0;
+  }
+}
+@media (max-width: 900px) {
+  .navcont {
+    flex-direction: column; /* stack logo + bottom row */
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  /* New bottom row container */
+  .nav-bottom {
+    display: flex;
+    justify-content: space-between; /* hamburger left, icons right */
+    align-items: center;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 120px; /* push below logo + bottom row */
+    left: 0;
+    width: 100vw;
+    background: #0a0c12;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    z-index: 150;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .list-item {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .list-item li {
+    width: 100%;
+    padding: 8px 0;
+  }
+}
+
+/* DESKTOP / LARGE SCREENS: logo left | menu centered | icons right */
+@media (min-width: 901px) {
+  .navcont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* enforce DOM ordering (in case nav-bottom/menu order in DOM differs) */
+  .logo {
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  /* make menu take the remaining space and center its items */
+  .menu {
+    order: 2;
+    display: flex !important;        /* override mobile display:none if present */
+    position: static !important;     /* override absolute mobile positioning */
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+    background: none !important;
+    padding: 0 !important;
+    flex: 1 1 auto;                  /* allow menu to grow and center itself */
+    justify-content: center;         /* center the <ul> horizontally */
+  }
+
+  /* horizontal list for the menu */
+  .list-item {
+    flex-direction: row;
+    gap: 24px;
+    margin: 0;
+  }
+
+  .list-item li {
+    padding: 0;
+  }
+
+  /* right-side container (hamburger + icons on mobile; icons only on desktop) */
+  .nav-bottom {
+    order: 3;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 0 0 auto;
+    margin-left: 0;
+  }
+
+  /* hide the hamburger on large screens */
+  .hamburger-btn {
+    display: none !important;
+  }
+
+  /* ensure icons layout */
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* make sure the menu show class still works */
+  .menu.show {
+    display: flex !important;
+  }
+}

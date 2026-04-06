@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#info{
+   display: flex;
+   flex-direction: column; 
+   margin-bottom: 15px;
+   margin-top: 20px;
+   justify-content: center;
+   /* align-items: center; */
+}
+
+#email{
+    height: 40px;
+    width: 40rem;
+    border-top: 1px solid grey;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#message{
+    height:300px ;
+    width: 40rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.info-message{
+height: 50px;
+width: 200px;
+background-color: crimson;
+color: beige;
+border-radius: 50px;
+justify-content: right;
+}
+.info-message:hover{
+height: 40px;
+width: 150px;
+background-color: rgb(20, 220, 87);
+color: black;
+border-radius: 50px;
+}

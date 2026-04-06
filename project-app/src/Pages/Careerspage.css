@@ -1,0 +1,188 @@
+/* Careers Page Responsive Styles */
+.career-main {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.career-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem 2rem 2rem 2rem;
+  width: 100%;
+  max-width: 2000px;
+  box-sizing: border-box;
+}
+.career-heroContent {
+  flex: 1;
+  min-width: 250px;
+}
+.career-title {
+  font-size: 2.7rem;
+  font-weight: bold;
+  color: #232526;
+  margin-bottom: 1rem;
+}
+.career-subtitle {
+  font-size: 1.2rem;
+  color: #414345;
+  margin-bottom: 1.5rem;
+}
+.career-heroImage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.career-hero-img {
+  width: 350px;
+  max-width: 90vw;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px #0001;
+}
+
+.howWeWork {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto 0 auto;
+  padding: 0 2rem 2rem 2rem;
+  box-sizing: border-box;
+}
+.howWeWork-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.howWeWork-desc {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.workGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.workItem {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 2rem 1rem 1.5rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.workItem h3 {
+  font-size: 1.2rem;
+  margin: 1rem 0 0.5rem 0;
+  color: #232526;
+}
+.workItem p {
+  font-size: 1rem;
+  color: #414345;
+}
+.iconn img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.5rem;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  box-sizing: border-box;
+}
+.gridImage-1, .gridImage-2, .gridImage-3, .gridImage-4 {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px #0001;
+  background: #fff;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  min-height: 180px;
+}
+.gridImage-1 img, .gridImage-2 img, .gridImage-3 img, .gridImage-4 img {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .career-hero {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1rem 1rem 1rem;
+  }
+  .career-hero-img {
+    width: 250px;
+  }
+  .workGrid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .imageGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .gridImage-1 img, .gridImage-2 img, .gridImage-3 img, .gridImage-4 img {
+    min-height: 140px;
+  }
+}
+@media (max-width: 600px) {
+  .career-title {
+    font-size: 1.3rem;
+  }
+  .career-subtitle {
+    font-size: 0.95rem;
+  }
+  .career-hero {
+    padding: 1rem 0.2rem 0.5rem 0.2rem;
+  }
+  .career-hero-img {
+    width: 120px;
+    border-radius: 12px;
+  }
+  .howWeWork {
+    padding: 0 0.2rem 1rem 0.2rem;
+  }
+  .howWeWork-title {
+    font-size: 1.1rem;
+  }
+  .howWeWork-desc {
+    font-size: 0.85rem;
+  }
+  .workGrid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+  .imageGrid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    padding: 0 0.2rem;
+  }
+  .gridImage-1, .gridImage-2, .gridImage-3, .gridImage-4 {
+    min-height: 90px;
+    border-radius: 10px;
+  }
+  .gridImage-1 img, .gridImage-2 img, .gridImage-3 img, .gridImage-4 img {
+    min-height: 90px;
+    border-radius: 10px;
+  }
+}
