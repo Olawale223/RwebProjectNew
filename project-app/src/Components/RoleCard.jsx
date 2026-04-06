@@ -19,7 +19,7 @@ import i0034 from '../Assets/FoodCourt/i0034.jpg';
 import i0035 from '../Assets/FoodCourt/i0035.jpg';
 import Slider from 'react-slick';
 
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function RoleCard() {
@@ -89,22 +89,21 @@ function RoleCard() {
     };
 
     useEffect(() => {
-        if (sliderRef.current) {
-            sliderRef.current.addEventListener('mousedown', handleMouseDown);
-            sliderRef.current.addEventListener('mousemove', handleMouseMove);
-            sliderRef.current.addEventListener('mouseup', handleMouseUp);
-            sliderRef.current.addEventListener('mouseleave', handleMouseLeave);
+        const slider = sliderRef.current;
+        if (!slider) return;
 
-            return () => {
-                if (sliderRef.current) {
-                    sliderRef.current.removeEventListener('mousedown', handleMouseDown);
-                    sliderRef.current.removeEventListener('mousemove', handleMouseMove);
-                    sliderRef.current.removeEventListener('mouseup', handleMouseUp);
-                    sliderRef.current.removeEventListener('mouseleave', handleMouseLeave);
-                }
-            };
-        }
-    }, [isDragging]);
+        slider.addEventListener('mousedown', handleMouseDown);
+        slider.addEventListener('mousemove', handleMouseMove);
+        slider.addEventListener('mouseup', handleMouseUp);
+        slider.addEventListener('mouseleave', handleMouseLeave);
+
+        return () => {
+            slider.removeEventListener('mousedown', handleMouseDown);
+            slider.removeEventListener('mousemove', handleMouseMove);
+            slider.removeEventListener('mouseup', handleMouseUp);
+            slider.removeEventListener('mouseleave', handleMouseLeave);
+        };
+    }, [handleMouseDown, handleMouseMove, handleMouseUp, handleMouseLeave]);
 
     return (
         <Layouttwo>
